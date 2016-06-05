@@ -4,8 +4,8 @@
 # StickyScrollView
 
 Emil Sjölander's [StickyScrollViewItems](https://github.com/emilsjolander/StickyScrollViewItems) fork with some new features:
-* Support for *nested scrolling*, extending from `android.support.v4.widget.NestedScrollView`
-* Support for *scroll listeners*
+* Support for **nested scrolling**, extending from `android.support.v4.widget.NestedScrollView`
+* Support for **scroll listeners**
 
 ## Download
 
