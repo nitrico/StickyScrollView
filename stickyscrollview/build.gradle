@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+
+ext {
+    libraryName = 'stickyscrollview'
+    libraryVersion = '1.0.0'
+    libraryDescription = 'Sticky observable nested ScrollView for Android.'
+
+    mavenGroupId = 'com.github.nitrico.stickyscrollview'
+    artifact = libraryName
+
+    siteUrl = 'https://github.com/nitrico/stickyscrollview'
+    gitUrl = 'https://github.com/nitrico/stickyscrollview.git'
+
+    bintrayRepo = 'maven'
+    bintrayName = libraryName
+
+    developerId = 'moreno'
+    developerName = 'Miguel Ángel Moreno'
+    developerEmail = 'nitrico@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        minSdkVersion 11
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:23.4.0'
+}
+
+apply from: 'install.gradle'
+apply from: 'bintray.gradle'
