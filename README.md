@@ -1,4 +1,5 @@
 [![Download](https://api.bintray.com/packages/moreno/maven/stickyscrollview/images/download.svg)](https://bintray.com/moreno/maven/stickyscrollview/_latestVersion)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-StickyScrollView-green.svg?style=true)](https://android-arsenal.com/details/1/3687)
 [![License](https://img.shields.io/:License-Apache-orange.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 # StickyScrollView
