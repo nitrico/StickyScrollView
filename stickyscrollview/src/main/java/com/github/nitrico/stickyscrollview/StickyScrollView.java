@@ -16,6 +16,7 @@ import java.util.ArrayList;
 @Keep
 public class StickyScrollView extends NestedScrollView {
 
+    @Keep
     public interface OnStickyScrollViewListener {
         void onScrollChanged(int x, int y, int oldX, int oldY);
     }
