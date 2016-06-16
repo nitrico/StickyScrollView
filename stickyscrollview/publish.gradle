@@ -2,13 +2,14 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 def libName = 'stickyscrollview'
-def libGroupId = 'com.github.nitrico.stickyscrollview'
-def libDescription = 'Sticky observable nested ScrollView for Android'
-def libWebsite = 'https://github.com/nitrico/stickyscrollview'
-def libTracker = 'https://github.com/nitrico/stickyscrollview/issues'
-def libGit = 'https://github.com/nitrico/stickyscrollview.git'
+def libGroup = 'com.github.nitrico.' + libName
+def libSite = 'https://github.com/nitrico/' + libName
+def libGit = libSite + '.git'
+def libTracker = libSite + '/issues'
+def libDesc = 'Sticky observable nested ScrollView for Android'
+def libTags = ['android', 'widget', 'sticky', 'observable', 'scrollview', 'nestedscrollview']
 
-group = libGroupId
+group = libGroup
 version = '1.0.1'
 
 Properties properties = new Properties()
@@ -21,12 +22,12 @@ bintray {
     pkg {
         repo = 'maven'
         name = libName
-        desc = libDescription
-        websiteUrl = libWebsite
+        desc = libDesc
+        websiteUrl = libSite
         issueTrackerUrl = libTracker
         vcsUrl = libGit
-        licenses = ["Apache-2.0"]
-        labels = ['android', 'widget', 'sticky', 'observable', 'scrollview', 'nestedscrollview']
+        licenses = ['Apache-2.0']
+        labels = libTags
         publish = true
         publicDownloadNumbers = true
     }
@@ -36,11 +37,11 @@ install {
     repositories.mavenInstaller {
         pom.project {
             packaging 'aar'
-            groupId libGroupId
+            groupId libGroup
             artifactId libName
             name libName
-            description libDescription
-            url libWebsite
+            description libDesc
+            url libSite
 
             licenses {
                 license {
@@ -58,7 +59,7 @@ install {
             scm {
                 connection libGit
                 developerConnection libGit
-                url libWebsite
+                url libSite
             }
         }
     }

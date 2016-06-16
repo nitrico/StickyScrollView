@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.0"
-
+    compileSdkVersion versionSdkTarget
+    buildToolsVersion versionTools
     defaultConfig {
         applicationId "com.github.nitrico.mystickyscrollview"
-        minSdkVersion 11
-        targetSdkVersion 24
+        minSdkVersion versionSdkMin
+        targetSdkVersion versionSdkTarget
         versionCode 1
         versionName "1.0"
     }
@@ -20,6 +19,6 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:24.0.0'
+    compile "com.android.support:appcompat-v7:$versionSupport"
     compile project(":stickyscrollview")
 }

@@ -1,4 +1,10 @@
 buildscript {
+    ext {
+        versionSdkMin = 11
+        versionSdkTarget = 24
+        versionTools = '24.0.0'
+        versionSupport = '24.0.0'
+    }
     repositories {
         jcenter()
     }
