@@ -329,11 +329,13 @@ public class StickyScrollView extends NestedScrollView {
 
     private void startStickingView(View viewThatShouldStick) {
         currentlyStickingView = viewThatShouldStick;
-        if (getStringTagForView(currentlyStickingView).contains(FLAG_HASTRANSPARENCY)) {
-            hideView(currentlyStickingView);
-        }
-        if (((String) currentlyStickingView.getTag()).contains(FLAG_NONCONSTANT)) {
-            post(invalidateRunnable);
+        if (currentlyStickingView != null && currentlyStickingView.getTag() != null) {
+            if (getStringTagForView(currentlyStickingView).contains(FLAG_HASTRANSPARENCY)) {
+                hideView(currentlyStickingView);
+            }
+            if (((String) currentlyStickingView.getTag()).contains(FLAG_NONCONSTANT)) {
+                post(invalidateRunnable);
+            }
         }
     }
 
