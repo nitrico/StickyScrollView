@@ -11,7 +11,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 
 import java.util.ArrayList;
 
@@ -123,9 +122,7 @@ public class StickyScrollView extends NestedScrollView {
 
     private int getLeftForViewRelativeOnlyChild(View v) {
         int left = v.getLeft();
-        ViewParent parent = v.getParent();
-        while (parent != null && parent != getChildAt(0)) {
-            v = (View) parent;
+        while (v.getParent() != null && v.getParent() != getChildAt(0)) {
             v = (View) v.getParent();
             left += v.getLeft();
         }
@@ -134,9 +131,7 @@ public class StickyScrollView extends NestedScrollView {
 
     private int getTopForViewRelativeOnlyChild(View v) {
         int top = v.getTop();
-        ViewParent parent = v.getParent();
-        while (parent != null && parent != getChildAt(0)) {
-            v = (View) parent;
+        while (v.getParent() != null && v.getParent() != getChildAt(0)) {
             v = (View) v.getParent();
             top += v.getTop();
         }
@@ -145,9 +140,7 @@ public class StickyScrollView extends NestedScrollView {
 
     private int getRightForViewRelativeOnlyChild(View v) {
         int right = v.getRight();
-        ViewParent parent = v.getParent();
-        while (parent != null && parent != getChildAt(0)) {
-            v = (View) parent;
+        while (v.getParent() != null && v.getParent() != getChildAt(0)) {
             v = (View) v.getParent();
             right += v.getRight();
         }
@@ -156,9 +149,8 @@ public class StickyScrollView extends NestedScrollView {
 
     private int getBottomForViewRelativeOnlyChild(View v) {
         int bottom = v.getBottom();
-        ViewParent parent = v.getParent();
-        while (parent != null && parent != getChildAt(0)) {
-            v = (View) parent;
+        while (v.getParent() != null && v.getParent() != getChildAt(0)) {
+            v = (View) v.getParent();
             bottom += v.getBottom();
         }
         return bottom;
