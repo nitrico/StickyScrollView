@@ -1,181 +1,47 @@
-<com.github.nitrico.stickyscrollview.StickyScrollView
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:fillViewport="true">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="144dp"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <TextView
+        <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
+            android:layout_height="match_parent"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="@string/app_name">
 
-        <TextView
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"/>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <com.github.nitrico.stickyscrollview.StickyScrollView
+        android:id="@+id/sticky"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".MainActivity">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_text"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:background="#EFFF"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"
-            android:tag="sticky"/>
+    </com.github.nitrico.stickyscrollview.StickyScrollView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:background="#EFFF"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"
-            android:tag="sticky"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/primary_text_light"
-            android:text="@string/lorem_ipsum"/>
-
-    </LinearLayout>
-
-</com.github.nitrico.stickyscrollview.StickyScrollView>
+</android.support.design.widget.CoordinatorLayout>
