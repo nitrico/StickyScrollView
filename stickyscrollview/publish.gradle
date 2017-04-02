@@ -10,7 +10,7 @@ def libDesc = 'Sticky observable nested ScrollView for Android'
 def libTags = ['android', 'widget', 'sticky', 'observable', 'scrollview', 'nestedscrollview']
 
 group = libGroup
-version = '1.0.1'
+version = '1.0.2'
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
@@ -42,7 +42,6 @@ install {
             name libName
             description libDesc
             url libSite
-
             licenses {
                 license {
                     name 'The Apache Software License, Version 2.0'

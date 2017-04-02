@@ -9,9 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.github.nitrico.stickyscrollview.StickyScrollView;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -35,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements StickyScrollView.
         setSupportActionBar(toolbar);
 
         RecyclerView recycler = (RecyclerView) findViewById(R.id.recycler);
+        recycler.setNestedScrollingEnabled(false);
         recycler.setLayoutManager(new LinearLayoutManager(this));
         ExampleAdapter adapter = new ExampleAdapter();
         adapter.setItems(items);
@@ -51,22 +50,16 @@ public class MainActivity extends AppCompatActivity implements StickyScrollView.
 
     private static class ExampleAdapter extends RecyclerView.Adapter<ExampleViewHolder> {
 
-        private static final int VIEW_TYPE_NON_STICKY = 0;
-        private static final int VIEW_TYPE_STICKY = 1;
+        private static final int VIEW_TYPE_NON_STICKY = R.layout.item_text;
+        private static final int VIEW_TYPE_STICKY = R.layout.item_text_sticky;
 
         private List<ListItem> items = new ArrayList<>();
 
         @Override
         public ExampleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-
-            if (viewType == VIEW_TYPE_NON_STICKY) {
-                return new ExampleViewHolder(inflater.inflate(R.layout.item_text, parent, false));
-            } else if (viewType == VIEW_TYPE_STICKY) {
-                return new ExampleViewHolder(inflater.inflate(R.layout.item_text_sticky, parent, false));
-            }
-
-            throw new IllegalArgumentException("viewType not supported");
+            View view = inflater.inflate(viewType, parent, false);
+            return new ExampleViewHolder(view);
         }
 
         @Override
@@ -92,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements StickyScrollView.
             for (String item : newItems) {
                 items.add(new ListItem(item));
             }
-
             // sort items in natural order
             Collections.sort(items, new Comparator<ListItem>() {
                 @Override
@@ -100,7 +92,6 @@ public class MainActivity extends AppCompatActivity implements StickyScrollView.
                     return o1.text.compareToIgnoreCase(o2.text);
                 }
             });
-
             // categorize items by their first letter
             StickyListItem stickyListItem = null;
             for (int i = 0, size = items.size(); i < size; i++) {
@@ -117,32 +108,27 @@ public class MainActivity extends AppCompatActivity implements StickyScrollView.
     }
 
     private static class ExampleViewHolder extends RecyclerView.ViewHolder {
-
         private TextView text;
-
         ExampleViewHolder(View itemView) {
             super(itemView);
             text = (TextView) itemView.findViewById(R.id.text);
         }
-
         void bind(ListItem item) {
             text.setText(item.text);
         }
     }
 
     private static class ListItem {
-
         protected String text;
-
         public ListItem(String text) {
             this.text = text;
         }
     }
 
     private static class StickyListItem extends ListItem {
-
         public StickyListItem(String text) {
             super(text);
         }
     }
+
 }

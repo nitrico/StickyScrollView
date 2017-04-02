@@ -1,8 +1,8 @@
 <resources>
 
     <declare-styleable name="StickyScrollView">
-        <attr name="stuckShadowHeight" format="dimension" />
-        <attr name="stuckShadowDrawable" format="reference" />
+        <attr name="stuckShadowHeight" format="dimension"/>
+        <attr name="stuckShadowDrawable" format="reference"/>
     </declare-styleable>
 
 </resources>
