@@ -14,7 +14,7 @@ Emil Sjölander's [StickyScrollViewItems](https://github.com/emilsjolander/Stick
 
 ```gradle
 dependencies {
-    compile 'com.github.nitrico.stickyscrollview:stickyscrollview:1.0.1'
+    compile 'com.github.nitrico.stickyscrollview:stickyscrollview:1.0.2'
 }
 ```
 
