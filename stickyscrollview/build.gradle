@@ -3,9 +3,7 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion versionSdkTarget
     buildToolsVersion versionTools
-    defaultConfig {
-        minSdkVersion versionSdkMin
-    }
+    defaultConfig.minSdkVersion versionSdkMin
 }
 
 dependencies {

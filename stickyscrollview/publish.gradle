@@ -10,14 +10,14 @@ def libDesc = 'Sticky observable nested ScrollView for Android'
 def libTags = ['android', 'widget', 'sticky', 'observable', 'scrollview', 'nestedscrollview']
 
 group = libGroup
-version = '1.0.1'
+version = '1.0.2'
 
 Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
+properties.load(rootProject.file('local.properties').newDataInputStream())
 
 bintray {
-    user = properties.getProperty('bintray.user')
-    key = properties.getProperty('bintray.key')
+    user = properties.getProperty('bintray_user')
+    key = properties.getProperty('bintray_key')
     configurations = ['archives']
     pkg {
         repo = 'maven'
@@ -42,7 +42,6 @@ install {
             name libName
             description libDesc
             url libSite
-
             licenses {
                 license {
                     name 'The Apache Software License, Version 2.0'

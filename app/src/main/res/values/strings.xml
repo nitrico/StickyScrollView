@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">StickyScrollView</string>
+    <string name="lorem_ipsum">Lorem ipsum</string>
 </resources>

@@ -20,7 +20,5 @@ android {
 
 dependencies {
     compile "com.android.support:appcompat-v7:$versionSupport"
-    compile "com.android.support:design:$versionSupport"
-    compile "com.android.support:recyclerview-v7:$versionSupport"
     compile project(":stickyscrollview")
 }
