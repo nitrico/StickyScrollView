@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+
 import java.util.ArrayList;
 
 @Keep
@@ -300,7 +301,7 @@ public class StickyScrollView extends NestedScrollView {
             if (viewTop <= 0) {
                 if (viewThatShouldStick == null || viewTop >
                         (getTopForViewRelativeOnlyChild(viewThatShouldStick)
-                        - getScrollY() + (clippingToPadding ? 0 : getPaddingTop()))) {
+                                - getScrollY() + (clippingToPadding ? 0 : getPaddingTop()))) {
                     viewThatShouldStick = v;
                 }
             } else {
@@ -365,22 +366,20 @@ public class StickyScrollView extends NestedScrollView {
     }
 
     private void findStickyViews(View v) {
-        if (v instanceof ViewGroup) {
+        if (!detainStickyView(v) && (v instanceof ViewGroup)) {
             ViewGroup vg = (ViewGroup) v;
-            for (int i = 0; i < vg.getChildCount(); i++) {
-                String tag = getStringTagForView(vg.getChildAt(i));
-                if (tag != null && tag.contains(STICKY_TAG)) {
-                    stickyViews.add(vg.getChildAt(i));
-                } else if (vg.getChildAt(i) instanceof ViewGroup) {
-                    findStickyViews(vg.getChildAt(i));
-                }
-            }
-        } else {
-            String tag = (String) v.getTag();
-            if (tag != null && tag.contains(STICKY_TAG)) {
-                stickyViews.add(v);
-            }
+            for (int i = 0; i < vg.getChildCount(); i++)
+                findStickyViews(vg.getChildAt(i));
         }
+    }
+
+    private boolean detainStickyView(View view) {
+        String tag = getStringTagForView(view);
+        if (tag.contains(STICKY_TAG)) {
+            stickyViews.add(view);
+            return true;
+        }
+        return false;
     }
 
     private String getStringTagForView(View v) {
