@@ -15,7 +15,7 @@
             android:layout_height="match_parent"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             app:title="@string/app_name">
 
             <android.support.v7.widget.Toolbar
@@ -36,11 +36,52 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".MainActivity">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_text"/>
+            android:orientation="vertical">
+
+            <android.support.design.widget.TabLayout
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/tab_header"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="#FFFFFF"
+                android:tag="sticky"
+                app:tabBackground="?selectableItemBackground"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="#FF5555"
+                app:tabIndicatorHeight="2dp"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="#000000"
+                app:tabTextColor="#000000"/>
+
+            <TextView
+                android:text="@string/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"/>
+
+            <TextView
+                android:text="@string/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"/>
+
+            <TextView
+                android:text="@string/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"/>
+
+            <TextView
+                android:text="@string/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_text"/>
+        </LinearLayout>
 
     </com.github.nitrico.stickyscrollview.StickyScrollView>
 

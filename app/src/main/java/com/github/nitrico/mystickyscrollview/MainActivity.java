@@ -1,6 +1,7 @@
 package com.github.nitrico.mystickyscrollview;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements StickyScrollView.
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        initTabLayout();
+
         RecyclerView recycler = (RecyclerView) findViewById(R.id.recycler);
         recycler.setNestedScrollingEnabled(false);
         recycler.setLayoutManager(new LinearLayoutManager(this));
@@ -41,6 +44,22 @@ public class MainActivity extends AppCompatActivity implements StickyScrollView.
 
         StickyScrollView sticky = (StickyScrollView) findViewById(R.id.sticky);
         sticky.addOnStickyScrollViewListener(this);
+    }
+
+    private void initTabLayout() {
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_header);
+
+        TabLayout.Tab tab = tabLayout.newTab();
+        tab.setText("First");
+        tabLayout.addTab(tab);
+
+        tab = tabLayout.newTab();
+        tab.setText("Second");
+        tabLayout.addTab(tab);
+
+        tab = tabLayout.newTab();
+        tab.setText("Third");
+        tabLayout.addTab(tab);
     }
 
     @Override
